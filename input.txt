@@ -1,0 +1,2 @@
+1 zero A 3 2
+2 SUB A 1
