@@ -1,3 +1,35 @@
+# Instanciação dos registradores
+A = B = C = D = E = F = G = H = 0
+
+def initialize_registers():
+    num_registers = int(input("Quantos registradores você quer inicializar? "))
+    
+    while num_registers < 0:
+        print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
+        print("O número de registradores para inicializar não pode ser menor que zero.")
+        num_registers = int(input("Quantos registradores você quer inicializar? "))
+    
+    for _ in range(num_registers):
+        print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
+
+        register_name = input("Digite o nome do registrador (A, B, C, D, E, F, G, H): ").upper()
+
+        while register_name not in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+            print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
+            print("Nome de registrador inválido. Por favor, digite um dos registradores válidos.")
+            register_name = input("Digite o nome do registrador (A, B, C, D, E, F, G, H): ").upper()
+        
+        register_value = input(f"Digite o valor para o registrador {register_name}: ")
+
+        while not register_value.isdigit():
+            print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
+            print("Valor inválido. Por favor, digite um número inteiro.")
+            register_value = input(f"Digite o valor para o registrador {register_name}: ")
+
+        register_value = int(register_value)
+
+        globals()[register_name] = register_value
+
 def validate_instruction(instruction):
     # 
     # Validação de cada parte da instrução
@@ -56,12 +88,10 @@ def main():
 
     instructions = read_instructions(input_file_name)
 
-    print(instructions)
-
     for n, instruction in enumerate(instructions):
         instructions[n] = validate_instruction(instruction)
 
-    print(instructions)
+    initialize_registers()
 
 if __name__ == "__main__":
     main()
