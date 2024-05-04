@@ -1,6 +1,38 @@
 # Instanciação dos registradores
 A = B = C = D = E = F = G = H = 0
 
+def add_one(register):
+    globals()[register] += 1
+
+def sub_one(register):
+    globals()[register] -= 1
+
+def is_zero(register):
+    return globals()[register] == 0
+
+def execute_instructions(instructions, next_instruction):
+    while any(instruction[0] == next_instruction for instruction in instructions):
+        for label, operation, register, next_labels in instructions:
+
+            if label != next_instruction:
+                break
+            
+            if operation == "add":
+                add_one(register)
+                next_instruction = next_labels[0]
+            elif operation == "sub":
+                sub_one(register)
+                next_instruction = next_labels[0]
+            elif operation == "zero":
+                if is_zero(register):
+                    next_instruction = next_labels[0]
+                else:
+                    next_instruction = next_labels[1]
+
+            print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
+            print(f"Instrução atual: {label} | Próxima instrução: {next_instruction}")
+            print("\n")
+
 def initialize_registers():
     """
     Função para inicializar os registradores com valores determinados pelo usuário
@@ -44,6 +76,8 @@ def initialize_registers():
         register_values.append(register_value)
 
         globals()[register_name] = register_value # 2.3
+
+    print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
 
     return [register_values, "M"] # 3.0
 
@@ -102,6 +136,8 @@ def main():
         instructions[n] = validate_instruction(instruction)
 
     output.append(initialize_registers())
+
+    execute_instructions(instructions, instructions[0][0])
 
 if __name__ == "__main__":
     main()
