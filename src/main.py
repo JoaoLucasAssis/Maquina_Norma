@@ -101,8 +101,7 @@ def main():
     for n, instruction in enumerate(instructions):
         instructions[n] = validate_instruction(instruction)
 
-    output = initialize_registers()
-    print(output)
+    output.append(initialize_registers())
 
 if __name__ == "__main__":
     main()
