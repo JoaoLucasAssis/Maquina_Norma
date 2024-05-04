@@ -29,7 +29,11 @@ def validate_instruction(instruction):
     if operation == "zero" and len(next_labels) <= 1:
         raise ValueError(f"This operation({operation}) must have 2 next labels")
 
-    instruction = [label, operation, register, next_labels] # 2.1
+    instruction = []
+    instruction.append(label) # 2.1
+    instruction.append(operation) # 2.1
+    instruction.append(register) # 2.1
+    instruction.append(next_labels) # 2.1
 
     return instruction # 2.2
 
@@ -54,9 +58,10 @@ def main():
 
     print(instructions)
 
-    for instruction in instructions:
-        instruction = validate_instruction(instruction)
-        print(instruction)
+    for n, instruction in enumerate(instructions):
+        instructions[n] = validate_instruction(instruction)
+
+    print(instructions)
 
 if __name__ == "__main__":
     main()
