@@ -11,6 +11,7 @@ def initialize_registers():
         2.1 - Solicita o nome do registrador e verifica se é válido.
         2.2 - Solicita o valor desejado para o registrador e verifica se é um número inteiro.
         2.3 - Atribui o valor à variável global correspondente ao registrador.
+    3.0 - Retorna uma lista contendo os valores dos registradores e a instrução "M"
     """
 
     # 1.0
@@ -32,14 +33,18 @@ def initialize_registers():
             register_name = input("Digite o nome do registrador (A, B, C, D, E, F, G, H): ").upper()
         
         # 2.2
+        register_values = []
         register_value = input(f"Digite o valor para o registrador {register_name}: ")
         while not register_value.isdigit():
             print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
             print("Valor inválido. Por favor, digite um número inteiro.")
             register_value = input(f"Digite o valor para o registrador {register_name}: ")
         register_value = int(register_value)
+        register_values.append(register_value)
 
         globals()[register_name] = register_value # 2.3
+
+        return [register_values, "M"]
 
 def validate_instruction(instruction):
     """
@@ -95,7 +100,7 @@ def main():
     for n, instruction in enumerate(instructions):
         instructions[n] = validate_instruction(instruction)
 
-    initialize_registers()
+    output = initialize_registers()
 
 if __name__ == "__main__":
     main()
