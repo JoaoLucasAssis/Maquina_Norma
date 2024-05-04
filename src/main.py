@@ -21,6 +21,8 @@ def initialize_registers():
         print("O número de registradores para inicializar não pode ser menor que zero.")
         num_registers = int(input("Quantos registradores você quer inicializar? "))
     
+    register_values = []
+    
     # 2.0
     for _ in range(num_registers):
         print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
@@ -33,7 +35,6 @@ def initialize_registers():
             register_name = input("Digite o nome do registrador (A, B, C, D, E, F, G, H): ").upper()
         
         # 2.2
-        register_values = []
         register_value = input(f"Digite o valor para o registrador {register_name}: ")
         while not register_value.isdigit():
             print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
@@ -44,7 +45,7 @@ def initialize_registers():
 
         globals()[register_name] = register_value # 2.3
 
-        return [register_values, "M"]
+    return [register_values, "M"] # 3.0
 
 def validate_instruction(instruction):
     """
@@ -101,6 +102,7 @@ def main():
         instructions[n] = validate_instruction(instruction)
 
     output = initialize_registers()
+    print(output)
 
 if __name__ == "__main__":
     main()
