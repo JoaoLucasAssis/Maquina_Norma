@@ -11,27 +11,50 @@ def is_zero(register):
     return globals()[register] == 0
 
 def execute_instructions(instructions, next_instruction):
+    """
+    Executa as instruções do programa até que o próximo rótulo de instrução seja diferente
+    do rótulo da instrução atual
+
+    Args:
+        instructions (list): Lista de instruções do programa
+        next_instruction (int): Próximo rótulo de instrução a ser executado
+
+    Execução:
+    1.0 - Executa o progama enquanto houver instruções com o mesmo rótulo que o próximo rótulo de instrução
+    2.0 - Para cada instrução:
+        2.1 - Verifica se o rótulo da instrução atual é igual ao próximo rótulo de instrução
+            2.1.1 - Caso os rótulos sejam diferentes, encerra-se o programa
+        2.2 - Executa a operação da instrução atual
+        2.3 - Atualiza o próximo rótulo de instrução com base nos next_labels da instrução atual
+    """
+
+    # 1.0
     while any(instruction[0] == next_instruction for instruction in instructions):
+
+        # 2.0
         for label, operation, register, next_labels in instructions:
 
+            # 2.1
             if label != next_instruction:
-                break
-            
+                break # 2.1.1
+
+            # 2.2
             if operation == "add":
                 add_one(register)
-                next_instruction = next_labels[0]
+                next_instruction = next_labels[0] # 2.3
             elif operation == "sub":
                 sub_one(register)
-                next_instruction = next_labels[0]
+                next_instruction = next_labels[0] # 2.3
             elif operation == "zero":
                 if is_zero(register):
-                    next_instruction = next_labels[0]
+                    next_instruction = next_labels[0] # 2.3
                 else:
-                    next_instruction = next_labels[1]
+                    next_instruction = next_labels[1] # 2.3
 
-            print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
-            print(f"Instrução atual: {label} | Próxima instrução: {next_instruction}")
-            print("\n")
+            # Descomente em caso de desenvolvimento p/ acompanhar a execução do programa
+            # print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
+            # print(f"Instrução atual: {label} | Próxima instrução: {next_instruction}")
+            # print("\n")
 
 def initialize_registers():
     """
