@@ -10,7 +10,7 @@ def sub_one(register):
 def is_zero(register):
     return globals()[register] == 0
 
-def execute_instructions(instructions, next_instruction):
+def execute_instructions(instructions, next_instruction, register_names):
     """
     Executa as instruções do programa até que o próximo rótulo de instrução seja diferente
     do rótulo da instrução atual
@@ -27,6 +27,8 @@ def execute_instructions(instructions, next_instruction):
         2.2 - Executa a operação da instrução atual
         2.3 - Atualiza o próximo rótulo de instrução com base nos next_labels da instrução atual
     """
+
+    output_instructions = []
 
     # 1.0
     while any(instruction[0] == next_instruction for instruction in instructions):
@@ -51,10 +53,14 @@ def execute_instructions(instructions, next_instruction):
                 else:
                     next_instruction = next_labels[1] # 2.3
 
+            output_instructions.append([[globals()[register_name] for register_name in register_names], label]) # transformar label em array
+           
             # Descomente em caso de desenvolvimento p/ acompanhar a execução do programa
-            # print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
-            # print(f"Instrução atual: {label} | Próxima instrução: {next_instruction}")
-            # print("\n")
+            print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
+            print(f"Instrução atual: {label} | Próxima instrução: {next_instruction}")
+            print("\n")
+
+    return output_instructions
 
 def initialize_registers():
     """
@@ -71,11 +77,13 @@ def initialize_registers():
 
     # 1.0
     num_registers = int(input("Quantos registradores você quer inicializar? "))
+
     while num_registers < 0:
         print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
         print("O número de registradores para inicializar não pode ser menor que zero.")
         num_registers = int(input("Quantos registradores você quer inicializar? "))
     
+    register_names = []
     register_values = []
     
     # 2.0
@@ -84,17 +92,22 @@ def initialize_registers():
 
         # 2.1
         register_name = input("Digite o nome do registrador (A, B, C, D, E, F, G, H): ").upper()
+
         while register_name not in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
             print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
             print("Nome de registrador inválido. Por favor, digite um dos registradores válidos.")
             register_name = input("Digite o nome do registrador (A, B, C, D, E, F, G, H): ").upper()
         
+        register_names.append(register_name)
+
         # 2.2
         register_value = input(f"Digite o valor para o registrador {register_name}: ")
+
         while not register_value.isdigit():
             print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
             print("Valor inválido. Por favor, digite um número inteiro.")
             register_value = input(f"Digite o valor para o registrador {register_name}: ")
+
         register_value = int(register_value)
         register_values.append(register_value)
 
@@ -102,7 +115,7 @@ def initialize_registers():
 
     print("\x1b[2J\x1b[1;1H") # Faz a limpeza do terminal
 
-    return [register_values, "M"] # 3.0
+    return [register_values, "M"], register_names # 3.0
 
 def validate_instruction(instruction):
     """
@@ -148,6 +161,17 @@ def read_instructions(input_file_name):
 
     return instructions
 
+def write_intructions(output_file_name, output):
+    try:
+        with open(output_file_name, 'w') as file:
+            for instruction in output:
+                file.write(f"{instruction}\n")
+
+        print("Arquivo 'output.txt' foi criado com sucesso")
+    except ValueError:
+        raise ValueError()
+    
+
 def main():
     input_file_name = "input.txt"
     output_file_name = "output.txt"
@@ -158,9 +182,14 @@ def main():
     for n, instruction in enumerate(instructions):
         instructions[n] = validate_instruction(instruction)
 
-    output.append(initialize_registers())
+    init_registers, register_names = initialize_registers()
 
-    execute_instructions(instructions, instructions[0][0])
+    output_instructions = execute_instructions(instructions, instructions[0][0], register_names)
+
+    output.append(init_registers)
+    output.extend(output_instructions)
+
+    write_intructions(output_file_name, output)
 
 if __name__ == "__main__":
     main()
