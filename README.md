@@ -6,21 +6,21 @@ A máquina lê instruções rotuladas de programas monolíticos e retorna uma sa
 
 O projeto é uma atividade acadêmica da disciplina Teoria da Computação na Universidade Vila Velha.
 
-## Descrição da Máquina Norma
+### Descrição da Máquina Norma
 
 A Máquina Norma implementada neste projeto possui as seguintes características:
 
-### Operações Disponíveis:
+#### Operações Disponíveis:
 
 * `add_one`: incrementa em uma unidade um determinado registrador.
 * `sub_one`: decrementa em uma unidade um determinado registrador.
 * `is_zero`: testa se um determinado registrador contém o valor zero.
   
-### Registradores:
+#### Registradores:
 
 * A, B, C, D, E, F, G, H.
 
-## Como Usar
+### Como Usar
 
 Para utilizar o programa, siga estas etapas:
 
