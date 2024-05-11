@@ -26,6 +26,7 @@ def execute_instructions(instructions, next_instruction, register_names):
             2.1.1 - Caso os rótulos sejam diferentes, encerra-se o programa
         2.2 - Executa a operação da instrução atual
         2.3 - Atualiza o próximo rótulo de instrução com base nos next_labels da instrução atual
+        2.4 - Adiciona informações sobre a execução de cada instrução à lista "output_instructions"
     """
 
     output_instructions = []
@@ -53,12 +54,12 @@ def execute_instructions(instructions, next_instruction, register_names):
                 else:
                     next_instruction = next_labels[1] # 2.3
 
-            output_instructions.append([[globals()[register_name] for register_name in register_names], label]) # transformar label em array
+            output_instructions.append([[globals()[register_name] for register_name in register_names], label]) # 2.4
            
             # Descomente em caso de desenvolvimento p/ acompanhar a execução do programa
-            print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
-            print(f"Instrução atual: {label} | Próxima instrução: {next_instruction}")
-            print("\n")
+            # print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
+            # print(f"Instrução atual: {label} | Próxima instrução: {next_instruction}")
+            # print("\n")
 
     return output_instructions
 
@@ -170,7 +171,6 @@ def write_intructions(output_file_name, output):
         print("Arquivo 'output.txt' foi criado com sucesso")
     except ValueError:
         raise ValueError()
-    
 
 def main():
     input_file_name = "input.txt"
