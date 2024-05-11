@@ -68,6 +68,17 @@ Se tudo estiver correto, o arquivo `output.txt` será criado.
 </p>
 </details>
 
+## Formato do Arquivo de Entrada
+
+O arquivo de entrada deve seguir a seguinte notação:
+
+```txt
+1 zero B 4 2
+2 sub B 3
+3 add A 1
+```
+O projeto permite digitação das operações e registradores em maiúsculo ou minúsculo sem interferência na execução do projeto.
+
 ## Colaboradores
 
 <table>
