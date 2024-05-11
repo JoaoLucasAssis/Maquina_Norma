@@ -29,3 +29,41 @@ Para utilizar o programa, siga estas etapas:
 * Execute o arquivo ``main.py`. Isso executará as instruções e gerará o arquivo ***output.txt*** com os resultados.
 
 O arquivo ***output.txt*** conterá os valores finais dos registradores após a execução das instruções.
+
+## Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+## Instalação
+<details>
+<summary>Clique aqui!</summary>
+<p>
+
+### Pré-requisitos para instalação!
+
+![Git](https://img.shields.io/badge/Git-E34F26?style=for-the-badge&logo=git&logoColor=white)
+--------------------------------------------------------------------------------------------
+
+Para começar, clone o repositório do projeto em seu ambiente local. Siga a etapa abaixo:
+
+* Abra o terminal na pasta onde deseja clonar o repositório.
+
+* Clone o repositório para o seu ambiente local usando o seguinte comando:
+
+```git
+git clone https://github.com/JoaoLucasAssis/Maquina_Norma.git
+```
+
+> :warning: obs: Certifique-se de ter o git instalado antes de executar o comando no terminal
+
+* Navegue até o diretório do projeto e execute o seguinte comando para rodar o programa:
+
+```python
+python .\src\main.py
+```
+
+Se tudo estiver correto, o arquivo `output.txt` será criado.
+</p>
+</details>
