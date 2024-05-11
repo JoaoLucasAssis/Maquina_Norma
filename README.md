@@ -44,6 +44,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 ### Pré-requisitos para instalação!
 
 ![Git](https://img.shields.io/badge/Git-E34F26?style=for-the-badge&logo=git&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 --------------------------------------------------------------------------------------------
 
 Para começar, clone o repositório do projeto em seu ambiente local. Siga a etapa abaixo:
