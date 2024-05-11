@@ -26,7 +26,7 @@ Para utilizar o programa, siga estas etapas:
 
 * Coloque as instruções desejadas no arquivo ***input.txt***, seguindo o formato descrito abaixo.
 
-* Execute o arquivo ``main.py`. Isso executará as instruções e gerará o arquivo ***output.txt*** com os resultados.
+* Execute o arquivo `main.py`. Isso executará as instruções e gerará o arquivo ***output.txt*** com os resultados.
 
 O arquivo ***output.txt*** conterá os valores finais dos registradores após a execução das instruções.
 
