@@ -67,3 +67,34 @@ python .\src\main.py
 Se tudo estiver correto, o arquivo `output.txt` será criado.
 </p>
 </details>
+
+## Colaboradores
+
+<table>
+  <tr>
+    <!-- João Lucas -->
+    <td align="center">
+      <a href="https://github.com/JoaoLucasAssis">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwxCRWlkfeigdbif83ap111RPNlGARl02wOF5OvW9zUA&s" width="100px;" height="100px;" alt="Foto do João Lucas"/><br>
+        <sub>
+          <b>JoaoLucasAssis</b>
+        </sub>
+      </a>
+    </td>
+    </td>
+    <!-- Matheus Muruci -->
+    <td align="center">
+      <a href="https://github.com/Matheusmslopes">
+        <img src="https://avatars.githubusercontent.com/u/100313664?v=4" width="100px;" height="100px;" alt="Foto do Matheus Muruci"/><br>
+        <sub>
+          <b>Matheusmslopes</b>
+        </sub>
+      </a>
+    </td>
+    </td>
+  </tr>
+</table>
+
+## Licença
+
+Este projeto não possui nenhuma licença. Sinta-se à vontade para usar, modificar e distribuir este código conforme necessário.
