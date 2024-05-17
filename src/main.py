@@ -38,23 +38,22 @@ def execute_instructions(instructions, next_instruction, register_names):
         for label, operation, register, next_labels in instructions:
 
             # 2.1
-            if label != next_instruction:
-                break # 2.1.1
-
+            if label == next_instruction:
+                
             # 2.2
-            if operation == "add":
-                add_one(register)
-                next_instruction = next_labels[0] # 2.3
-            elif operation == "sub":
-                sub_one(register)
-                next_instruction = next_labels[0] # 2.3
-            elif operation == "zero":
-                if is_zero(register):
+                if operation == "add":
+                    add_one(register)
                     next_instruction = next_labels[0] # 2.3
-                else:
-                    next_instruction = next_labels[1] # 2.3
+                elif operation == "sub":
+                    sub_one(register)
+                    next_instruction = next_labels[0] # 2.3
+                elif operation == "zero":
+                    if is_zero(register):
+                        next_instruction = next_labels[0] # 2.3
+                    else:
+                        next_instruction = next_labels[1] # 2.3
 
-            output_instructions.append([[globals()[register_name] for register_name in register_names], label]) # 2.4
+                output_instructions.append([[globals()[register_name] for register_name in register_names], label]) # 2.4
            
             # Descomente em caso de desenvolvimento p/ acompanhar a execução do programa
             # print(f"Operação {operation} no registrador {register}. Valor final: {globals()[register]}")
@@ -173,7 +172,7 @@ def write_intructions(output_file_name, output):
         raise ValueError()
 
 def main():
-    input_file_name = "input.txt"
+    input_file_name = "./Inputs/Soma.txt"
     output_file_name = "output.txt"
     output = []
 
