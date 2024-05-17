@@ -1,0 +1,8 @@
+1 zero A 5 2
+2 zero B 8 3
+3 sub A 4  
+4 sub B 1  
+5 zero B 6 7
+6 add C 9
+7 add E 9
+8 add D 9

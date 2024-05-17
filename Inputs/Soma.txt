@@ -1,0 +1,6 @@
+1 zero B 4 2
+2 sub B 3
+3 add A 1
+4 zero A 7 5
+5 sub A 6
+6 add C 4
