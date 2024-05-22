@@ -5,7 +5,10 @@ def add_one(register):
     globals()[register] += 1
 
 def sub_one(register):
-    globals()[register] -= 1
+    if globals()[register] == 0:
+        globals()[register] = 0
+    else:
+        globals()[register] -= 1
 
 def is_zero(register):
     return globals()[register] == 0
@@ -171,7 +174,7 @@ def write_intructions(output_file_name, output):
         raise ValueError()
 
 def main():
-    input_file_name = "./Inputs/mod.txt"
+    input_file_name = "./Inputs/TesteMod.txt"
     output_file_name = "output.txt"
     output = []
 
