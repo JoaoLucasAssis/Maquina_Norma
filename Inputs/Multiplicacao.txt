@@ -1,0 +1,9 @@
+1 zero A 100 2
+2 zero B 5 3
+3 sub B 4
+4 add D 2
+5 zero D 9 6
+6 add C 7
+7 sub D 8
+8 add B 5
+9 sub A 1
