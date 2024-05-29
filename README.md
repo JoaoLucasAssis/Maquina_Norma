@@ -104,6 +104,16 @@ O projeto permite digitação das operações e registradores em maiúsculo ou m
       </a>
     </td>
     </td>
+    <!-- Paulo Said -->
+    <td align="center">
+      <a href="https://github.com/PauloSaid">
+        <img src="https://avatars.githubusercontent.com/u/103071726?v=4" width="100px;" height="100px;" alt="Foto do Paulo Said"/><br>
+        <sub>
+          <b>PauloSaid</b>
+        </sub>
+      </a>
+    </td>
+    </td>
   </tr>
 </table>
 
