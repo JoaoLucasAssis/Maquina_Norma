@@ -1,0 +1,64 @@
+===========================================================================================================================
+Anotações do João
+- Talvez seja necessário +3 registradores para fazer esse exercício
+  - Dois regs p/ salvar os valores de E e B antes de executar teste_mod(E, B), afim de retorna-los para E e b ao fim do teste_mod
+  - Um regs p/ usar como indicador se é primo(1) ou não(0)
+===========================================================================================================================
+
+// se a for zero termina -> zero n é primo
+1 zero A 1000 2
+
+// Salva o valor de A em B e E
+2 zero A 6 3
+3 sub A 4
+4 add E 5
+5 add B 2
+
+// Diminui uma unidade de B
+6 sub B 7
+
+// Se B for zero termina -> 1 é primo, senão faz teste_mod(E, B)
+7 zero B 1001 8
+
+// Salva E em C e F -> isso zera o registrador E
+8 zero E 12 9
+9 sub E 10
+10 add F 11
+11 add C 8
+
+// Salva B em D e G -> isso zera o registrador B
+12 zero B 16 13
+13 sub B 14
+14 add G 15
+15 add D 12
+
+// Usa C e D em menor(C, D) -> isso zera um ou ambos os registradores
+16 zero D 33 17
+17 zero C 21 18
+18 zero D 23 19  
+19 sub C 20
+20 sub D 17
+21 zero D 22 33     
+22 add H 33
+
+// Usa F e G em menor(F, G)
+23 zero G 29 24
+24 sub F 25
+25 sub G 26
+26 zero F 27 28
+27 zero G 22 33
+28 add A 23
+29 zero F 22 30
+30 zero A 23 31
+31 sub A 32
+32 add G 30
+
+// Se H for zero teste_mod(E, B) é true e segue o fluxo, senão faz teste_mod(E, B - 1) -> Necessário uso de dois registradores p/ armazenar E e B no começo do teste_mod(E, B) e retornar p/ cada um no próximo passo
+33 zero H 36 34
+34 <retornar os valores iniciais de E e B> 35
+35 sub B 8
+36 sub B 37
+37 zero B 1001 1000
+
+// Adiciona um indicando que é primo ou não
+1001 add <escolher-registrador> 1002
