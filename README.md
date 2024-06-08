@@ -91,7 +91,7 @@ Abaixo está as especificações de cada registrador de entrada e saída de cada
 
 | Arquivo       | Registrador de Entrada  | Registrador de Saída                 |
 |:-------------:|:-----------------------:|:------------------------------------:|
-| Soma          | Entrada A e B           | Saída C                              |
+| Soma          | A e B                   | C                                    |
 | Multiplicação | A e B                   | C                                    |
 | Fatorial      | A                       | D                                    |
 | TesteMenor    | A e B                   | C se forem iguais                    |
