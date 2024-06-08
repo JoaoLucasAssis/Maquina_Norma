@@ -1,6 +1,6 @@
 1 zero A 4 2
 2 sub A 3
-3 zero A4 5
+3 zero A 4 5
 4 add D 0
 5 add A 6
 6 sub A 7
@@ -26,5 +26,5 @@
 26 sub C 27
 27 zero C 0 28
 28 sub D 29
-29 add  B30
-30 zero D11 28
+29 add  B 30
+30 zero D 11 28
