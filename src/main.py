@@ -174,7 +174,7 @@ def write_intructions(output_file_name, output):
         raise ValueError()
 
 def main():
-    input_file_name = "./Inputs/<nome-do-arquivo>.txt"
+    input_file_name = "./Inputs/AmenorB.txt"
     output_file_name = "output.txt"
     output = []
 

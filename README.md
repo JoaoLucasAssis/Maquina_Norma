@@ -69,7 +69,9 @@ Se tudo estiver correto, o arquivo `output.txt` será criado.
 </p>
 </details>
 
-## Formato do Arquivo de Entrada
+## Arquivos de Entrada
+
+### Formato dos arquivos de entrada
 
 O arquivo de entrada deve seguir a seguinte notação:
 
@@ -78,7 +80,25 @@ O arquivo de entrada deve seguir a seguinte notação:
 2 sub B 3
 3 add A 1
 ```
+
 O projeto permite digitação das operações e registradores em maiúsculo ou minúsculo sem interferência na execução do projeto.
+
+### Entrada e saída de cada arquivo
+
+Abaixo está as especificações de cada registrador de entrada e saída de cada arquivo de entrada.
+> :warning: obs: Necessário inicializar os registradores de entrada e saída 
+> de cada arquivo, para que sejam mapeados no arquivo de saída
+
+| Arquivo       | Registrador de Entrada  | Registrador de Saída                 |
+|:-------------:|:-----------------------:|:------------------------------------:|
+| Soma          | Entrada A e B           | Saída C                              |
+| Multiplicação | A e B                   | C                                    |
+| Fatorial      | A                       | D                                    |
+| TesteMenor    | A e B                   | C se forem iguais                    |
+|               |                         | E se A é menor que B                 |
+|               |                         | D se B é menor que A                 |
+| TesteMod      | A e B                   | H                                    |
+| TestePrimo    | A e B                   | C                                    |
 
 ## Colaboradores
 
@@ -93,7 +113,6 @@ O projeto permite digitação das operações e registradores em maiúsculo ou m
         </sub>
       </a>
     </td>
-    </td>
     <!-- Matheus Muruci -->
     <td align="center">
       <a href="https://github.com/Matheusmslopes">
@@ -102,7 +121,6 @@ O projeto permite digitação das operações e registradores em maiúsculo ou m
           <b>Matheusmslopes</b>
         </sub>
       </a>
-    </td>
     </td>
     <!-- Paulo Said -->
     <td align="center">
@@ -113,6 +131,14 @@ O projeto permite digitação das operações e registradores em maiúsculo ou m
         </sub>
       </a>
     </td>
+        <!-- Vitor Lugon -->
+    <td align="center">
+      <a href="https://github.com/VitorLugon">
+        <img src="https://avatars.githubusercontent.com/u/103381252?v=4" width="100px;" height="100px;" alt="Foto do Paulo Said"/><br>
+        <sub>
+          <b>VitorLugon</b>
+        </sub>
+      </a>
     </td>
   </tr>
 </table>
